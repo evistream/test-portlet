@@ -67,6 +67,15 @@ public class TestResultData implements ALData {
   /** メモ */
   private ALStringField note;
 
+  /** URL */
+  private ALStringField url;
+
+  /** 評価文 */
+  private ALStringField evaluationString;
+
+  /** サムネイルアドレス */
+  private ALStringField thumbAdress;
+
   /** 公開/非公開フラグ */
 //  private boolean is_public;
 
@@ -122,6 +131,12 @@ public class TestResultData implements ALData {
 //    category_name = new ALStringField();
     note = new ALStringField();
     note.setTrim(false);
+    url = new ALStringField();
+    url.setTrim(true);
+    thumbAdress = new ALStringField();
+    thumbAdress.setTrim(true);
+    evaluationString = new ALStringField();
+    evaluationString.setTrim(true);
 //    start_date = new ALStringField();
 //    end_date = new ALStringField();
 //    priority_image = new ALStringField();
@@ -249,6 +264,28 @@ public class TestResultData implements ALData {
   /**
    * @return
    */
+  public String getUrl() {
+    return url.getValue();
+  }
+
+
+  /**
+   * @return
+   */
+  public String getEvaluationString() {
+    return evaluationString.getValue();
+  }
+
+  /**
+   * @return
+   */
+  public String getThumbAdress() {
+    return thumbAdress.getValue();
+  }
+
+  /**
+   * @return
+   */
 //  public ALStringField getStartDate() {
 //    return start_date;
 //  }
@@ -267,6 +304,61 @@ public class TestResultData implements ALData {
    */
   public void setNote(String string) {
     note.setValue(string);
+  }
+
+  /**
+   * @param string
+   */
+  public void setUrl(String string) {
+    url.setValue(string);
+  }
+
+
+  //モードがトゥルーなら星で表示
+  public void setEvaluationString(int evaluation,boolean mode) {
+      String ev;
+
+      if(mode){
+          switch(evaluation){
+          case 1: ev = "★☆☆☆☆";
+    	  break;
+          case 2: ev = "★★☆☆☆";
+    	  break;
+          case 3: ev = "★★★☆☆";
+    	  break;
+          case 4: ev = "★★★★☆";
+    	  break;
+          case 5: ev = "★★★★★";
+    	  break;
+          default: ev = "☆☆☆☆☆";;
+    	  break;
+          }
+      }else{
+          switch(evaluation){
+          case 1: ev = "とても嫌い";
+    	  break;
+          case 2: ev = "嫌い";
+    	  break;
+          case 3: ev = "普通";
+    	  break;
+          case 4: ev = "好き";
+    	  break;
+          case 5: ev = "とても好き";
+    	  break;
+          default: ev = "未評価";;
+    	  break;
+          }
+      }
+      evaluationString.setValue(ev);
+}
+
+
+
+  /**
+   * @param string
+   */
+  public void setThumbAdress(String string) {
+    thumbAdress.setValue(string);
   }
 
   /**

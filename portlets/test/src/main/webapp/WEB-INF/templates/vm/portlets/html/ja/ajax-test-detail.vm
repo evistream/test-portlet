@@ -20,7 +20,7 @@
 ## ---------------------------------------------------------------------------
 #set ($indicator_id = "indicator-dlg-")
 ## ---------------------------------------------------------------------------
-#ALdialogheader("Test詳細")
+#ALdialogheader("ブックマーク詳細")
 #ALajaxIndicator("$indicator_id" "$!portlet.ID" "")
 <div id="messageDiv"></div>
 #ALajaxdetailformheader("ToDo")
@@ -33,8 +33,16 @@ $!result.Detail.TestName
 #ALtditem($!result.Detail.CreateDate)
 #ALtdcaption($l10n.TODO_UPDATE_DATE)
 #ALtditem($!result.Detail.UpdateDate)
+#ALtdcaption($l10n.TODO_URL)
+#ALtditem($!result.Detail.url)
+#ALtdcaption($l10n.TODO_EVALUATION)
+#ALtditem($!result.Detail.evaluationString)
 #ALtdcaption($l10n.TODO_MEMO)
 #ALtditem($!result.Detail.Note)
+#ALtdcaption($l10n.TODO_THUMB_NAIL)
+#ALtditemheader()
+<a><img src=$!result.Detail.ThumbAdress alt=$!result.Detail.Url width="200"  height="300" /></a>
+#ALtditemfooter()
 #ALtablefooter()
 #ALbuttonheader()
 #if($result.Detail.isSelfTest())

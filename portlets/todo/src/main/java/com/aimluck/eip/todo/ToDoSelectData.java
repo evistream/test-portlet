@@ -66,7 +66,7 @@ import com.aimluck.eip.util.ALEipUtils;
 
 /**
  * ToDo検索データを管理するクラスです。 <BR>
- * 
+ *
  */
 public class ToDoSelectData extends
     ALAbstractMultiFilterSelectData<EipTTodo, EipTTodo> implements ALData {
@@ -114,7 +114,7 @@ public class ToDoSelectData extends
   private ALStringField target_keyword;
 
   /**
-   * 
+   *
    * @param action
    * @param rundata
    * @param context
@@ -196,7 +196,7 @@ public class ToDoSelectData extends
   }
 
   /**
-   * 
+   *
    * @param rundata
    * @param context
    */
@@ -206,7 +206,7 @@ public class ToDoSelectData extends
 
   /**
    * 一覧データを取得します。 <BR>
-   * 
+   *
    * @param rundata
    * @param context
    * @return
@@ -248,7 +248,7 @@ public class ToDoSelectData extends
 
   /**
    * 検索条件を設定した SelectQuery を返します。 <BR>
-   * 
+   *
    * @param rundata
    * @param context
    * @return
@@ -361,7 +361,7 @@ public class ToDoSelectData extends
 
   /**
    * パラメータをマップに変換します。
-   * 
+   *
    * @param key
    * @param val
    */
@@ -439,7 +439,7 @@ public class ToDoSelectData extends
 
   /**
    * ResultData に値を格納して返します。（一覧データ） <BR>
-   * 
+   *
    * @param obj
    * @return
    */
@@ -501,7 +501,7 @@ public class ToDoSelectData extends
 
   /**
    * 詳細データを取得します。 <BR>
-   * 
+   *
    * @param rundata
    * @param context
    * @return
@@ -538,7 +538,7 @@ public class ToDoSelectData extends
 
   /**
    * ResultData に値を格納して返します。（詳細データ） <BR>
-   * 
+   *
    * @param obj
    * @return
    */
@@ -592,7 +592,7 @@ public class ToDoSelectData extends
   }
 
   /**
-   * 
+   *
    * @return
    */
   public List<ToDoCategoryResultData> getCategoryList() {
@@ -601,7 +601,7 @@ public class ToDoSelectData extends
 
   /**
    * 現在選択されているタブを取得します。 <BR>
-   * 
+   *
    * @return
    */
   public String getCurrentTab() {
@@ -610,7 +610,7 @@ public class ToDoSelectData extends
 
   /**
    * ToDo の総数を返す． <BR>
-   * 
+   *
    * @return
    */
   public int getTodoSum() {
@@ -619,7 +619,7 @@ public class ToDoSelectData extends
 
   /**
    * @return
-   * 
+   *
    */
   @Override
   protected Attributes getColumnMap() {
@@ -640,7 +640,7 @@ public class ToDoSelectData extends
   }
 
   /**
-   * 
+   *
    * @param id
    * @return
    */
@@ -671,7 +671,7 @@ public class ToDoSelectData extends
   }
 
   /**
-   * 
+   *
    * @param groupname
    * @return
    */
@@ -696,7 +696,7 @@ public class ToDoSelectData extends
   /**
    * アクセス権限チェック用メソッド。<br />
    * アクセス権限の機能名を返します。
-   * 
+   *
    * @return
    */
   @Override
@@ -736,7 +736,7 @@ public class ToDoSelectData extends
 
   /**
    * 部署一覧を取得します
-   * 
+   *
    * @return postList
    */
   public List<ALEipGroup> getPostList() {
@@ -745,7 +745,7 @@ public class ToDoSelectData extends
 
   /**
    * 部署の一覧を取得する．
-   * 
+   *
    * @return
    */
   public Map<Integer, ALEipPost> getPostMap() {

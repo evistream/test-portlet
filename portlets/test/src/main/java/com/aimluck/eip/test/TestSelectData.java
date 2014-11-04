@@ -287,6 +287,9 @@ public class TestSelectData extends
         ExpressionFactory.likeExp(EipTTest.TEST_NAME_PROPERTY, keyword);
       Expression exp2 =
         ExpressionFactory.likeExp(EipTTest.NOTE_PROPERTY, keyword);
+      Expression exp7 =
+    	        ExpressionFactory.likeExp(EipTTest.URL_PROPERTY, keyword);
+
 
       /* フルネーム対応 */
       String first_name = keyword;
@@ -319,8 +322,14 @@ public class TestSelectData extends
           + "."
           + TurbineUser.LAST_NAME_KANA_PROPERTY, last_name);
 
+      Expression exp8 =
+    	        ExpressionFactory.matchDbExp(TurbineUser.USER_ID_PK_COLUMN, Integer
+    	          .valueOf(login_user_id));
+    	      query.andQualifier(exp8);
+
       query.andQualifier(exp
         .orExp(exp2)
+        .orExp(exp7)
         .orExp(exp3)
         .orExp(exp4)
         .orExp(exp5)
@@ -465,6 +474,8 @@ public class TestSelectData extends
       rd.setTestName(ALCommonUtils.compressString(
         record.getTestName(),
         getStrLength()));
+      rd.setUrl(record.getUrl());
+      rd.setEvaluationString(record.getEvaluation(),true);
 //      if (!TestUtils.isEmptyDate(record.getStartDate())) {
 //        rd.setStartDate(ALDateUtil
 //          .format(record.getStartDate(), "yyyy年M月d日(E)"));
@@ -567,6 +578,9 @@ public class TestSelectData extends
 //        .getPriority()
 //        .intValue()));
       rd.setNote(record.getNote());
+      rd.setUrl(record.getUrl());
+      rd.setEvaluationString(record.getEvaluation(),false);
+      rd.setThumbAdress(record.getThumbAdress());
 //      rd.setCreateUserName(ALEipUtils
 //        .getALEipUser(record.getCreateUserId())
 //        .getAliasName()

@@ -94,6 +94,16 @@ public class TestFormData extends ALAbstractFormData {
   /** メモ */
   private ALStringField note;
 
+  /** URL */
+  private ALStringField url;
+
+  /** 評価 */
+  private ALNumberField evaluation;
+  private ALStringField evaluationString;
+
+  /** サムネイルアドレス */
+  private ALStringField thumbAdress;
+
   /** 開始日 */
 //  private ALDateField start_date;
 
@@ -222,6 +232,20 @@ public class TestFormData extends ALAbstractFormData {
     note = new ALStringField();
     note.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_MEMO"));
     note.setTrim(false);
+    // URL
+    url = new ALStringField();
+    url.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_URL"));
+    url.setTrim(true);
+    url.setValue("http://");
+    note.setTrim(false);
+    //評価
+    evaluation = new ALNumberField();
+    evaluation.setFieldName(ALLocalizationUtils
+    	      .getl10n("TODO_SETFIELDNAME_EVALUATION"));
+    // サムネアドレス
+    thumbAdress = new ALStringField();
+    thumbAdress.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_THUBM_ADRESS"));
+    thumbAdress.setTrim(true);
     // 開始日
 //    start_date = new ALDateField();
 //    start_date.setFieldName(ALLocalizationUtils
@@ -283,6 +307,10 @@ public class TestFormData extends ALAbstractFormData {
     test_name.limitMaxLength(50);
     // メモの文字数制限
     note.limitMaxLength(1000);
+    // URlの文字数制限
+    url.limitMaxLength(100);
+    // サムネイルアドレスの文字数制限
+    thumbAdress.limitMaxLength(1000);
 //    if (is_new_category) {
 //      // カテゴリ名必須項目
 //      category_name.setNotNull(true);
@@ -360,6 +388,10 @@ public class TestFormData extends ALAbstractFormData {
 //    }
     // メモ
     note.validate(msgList);
+    // URL
+    url.validate(msgList);
+    // サムネイル
+    thumbAdress.validate(msgList);
 //    if (is_new_category) {
 //      // カテゴリ名
 //      category_name.validate(msgList);
@@ -414,6 +446,12 @@ public class TestFormData extends ALAbstractFormData {
 //      priority.setValue(test.getPriority().longValue());
       // メモ
       note.setValue(test.getNote());
+      // URL
+      url.setValue(test.getUrl());
+      // サムネ
+      thumbAdress.setValue(test.getThumbAdress());
+      // 評価
+      evaluation.setValue(test.getEvaluation());
       // 公開区分
 //      public_flag.setValue(test.getPublicFlag());
 
@@ -523,6 +561,12 @@ public class TestFormData extends ALAbstractFormData {
 //      test.setPriority(Short.valueOf((short) priority.getValue()));
       // メモ
       test.setNote(note.getValue());
+      //URL
+      test.setUrl(url.getValue());
+      //サムネ
+      test.setThumbAdress("http://capture.heartrails.com/free?" + url.getValue());
+      // 評価
+      test.setEvaluation((int)evaluation.getValue());
       // 公開区分
 //      test.setPublicFlag(public_flag.getValue());
 //      test.setAddonScheduleFlg(addon_schedule_flg.getValue());
@@ -724,6 +768,12 @@ public class TestFormData extends ALAbstractFormData {
 //      test.setPriority(Short.valueOf((short) priority.getValue()));
       // メモ
       test.setNote(note.getValue());
+      // URL
+      test.setUrl(url.getValue());
+      //サムネ
+      test.setThumbAdress("http://capture.heartrails.com/free?" + url.getValue());
+      // 評価
+      test.setEvaluation((int)evaluation.getValue());
       // 公開区分
 //      test.setPublicFlag(public_flag.getValue());
 //      test.setAddonScheduleFlg(addon_schedule_flg.getValue());
@@ -839,6 +889,34 @@ public class TestFormData extends ALAbstractFormData {
    */
   public ALStringField getNote() {
     return note;
+  }
+
+  /**
+   * URLを取得します。 <BR>
+   *
+   * @return
+   */
+  public ALStringField getUrl() {
+    return url;
+  }
+
+
+  /**
+   * サムネアドレスを取得します。 <BR>
+   *
+   * @return
+   */
+  public ALStringField getThumbAdress() {
+    return thumbAdress;
+  }
+
+  /**
+   * 評価を取得します。 <BR>
+   *
+   * @return
+   */
+  public ALNumberField getEvaluation() {
+    return evaluation;
   }
 
   /**

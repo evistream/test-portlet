@@ -30,7 +30,7 @@ import com.aimluck.eip.util.ALEipUtils;
 
 /**
  * ToDoのResultDataです。 <BR>
- * 
+ *
  */
 public class ToDoResultData implements ALData {
 
@@ -66,6 +66,9 @@ public class ToDoResultData implements ALData {
 
   /** メモ */
   private ALStringField note;
+
+  /** URL */
+  private ALStringField url;
 
   /** 公開/非公開フラグ */
   private boolean is_public;
@@ -252,7 +255,7 @@ public class ToDoResultData implements ALData {
 
   /**
    * 公開/非公開フラグ．
-   * 
+   *
    * @return
    */
   public boolean isPublic() {
@@ -330,7 +333,7 @@ public class ToDoResultData implements ALData {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public ALStringField getStateImage() {
@@ -369,7 +372,7 @@ public class ToDoResultData implements ALData {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public ALNumberField getLimitState() {
@@ -377,7 +380,7 @@ public class ToDoResultData implements ALData {
   }
 
   /**
-   * 
+   *
    * @param value
    */
   public void setLimitState(int value) {
@@ -422,7 +425,7 @@ public class ToDoResultData implements ALData {
 
   /**
    * hasAclEditTodoOtherを取得します。
-   * 
+   *
    * @return hasAclEditTodoOther
    */
   public boolean hasAclEditTodoOther() {
@@ -431,7 +434,7 @@ public class ToDoResultData implements ALData {
 
   /**
    * hasAclEditTodoOtherを設定します。
-   * 
+   *
    * @param hasAclEditTodoOther
    *          hasAclEditTodoOther
    */
@@ -441,7 +444,7 @@ public class ToDoResultData implements ALData {
 
   /**
    * hasAclDeleteTodoOtherを取得します。
-   * 
+   *
    * @return hasAclDeleteTodoOther
    */
   public boolean hasAclDeleteTodoOther() {
@@ -450,7 +453,7 @@ public class ToDoResultData implements ALData {
 
   /**
    * hasAclDeleteTodoOtherを設定します。
-   * 
+   *
    * @param hasAclDeleteTodoOther
    *          hasAclDeleteTodoOther
    */

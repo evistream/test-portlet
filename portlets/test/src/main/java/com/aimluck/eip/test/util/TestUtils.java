@@ -97,7 +97,7 @@ public class TestUtils {
   /** 期限状態（期限後） */
   public static final int LIMIT_STATE_AFTER = 1;
 
-  public static final String TEST_PORTLET_NAME = "Test";
+  public static final String TEST_PORTLET_NAME = "ブックマーク";
 
   /**
    * Test オブジェクトモデルを取得します。 <BR>
@@ -625,12 +625,12 @@ public class TestUtils {
       List<String> recipients, boolean isNew, int operationUserId) {
 
     ALActivity RecentActivity =
-      ALActivity.getRecentActivity("Test", test.getTestId(), 1f);
+      ALActivity.getRecentActivity("BookMark", test.getTestId(), 1f);
     boolean isDeletePrev =
       RecentActivity != null && RecentActivity.isReplace(loginName);
 
     String title =
-      new StringBuilder("Test「").append(test.getTestName()).append(
+      new StringBuilder("ブックマーク「").append(test.getTestName()).append(
         isNew ? "」を追加しました。" : "」を編集しました。").toString();
     String portletParams =
       new StringBuilder("?template=TestDetailScreen")
@@ -640,7 +640,7 @@ public class TestUtils {
     if (recipients != null && recipients.size() > 0) {
       // 個人向け通知
       ALActivityService.create(new ALActivityPutRequest()
-        .withAppId("Test")
+        .withAppId("Bookmark")
         .withLoginName(loginName)
         .withUserId(operationUserId)
         .withPortletParams(portletParams)
